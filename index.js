@@ -1,6 +1,17 @@
 const { gql, ApolloServer } = require('apollo-server')
 
-let data = []
+let data = [
+  {
+    title: 'Ghostbusters',
+    year: '1984',
+    rating: 'PG'
+  },
+  {
+    title: 'Groundhog Day',
+    year: '1993',
+    rating: 'PG'
+  }
+]
 
 const typeDefs = gql`
   type Movie {
