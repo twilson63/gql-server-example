@@ -23,11 +23,21 @@ const typeDefs = gql`
   type Query {
     movies: [Movie]
   }
+
+  type Mutation {
+    createMovie(title: String!, year: String!, rating: String): Movie
+  }
 `
 
 const resolvers = {
   Query: {
     movies: () => data 
+  },
+  Mutation: {
+    createMovie: (parent, {title, year, rating}) => {
+      data = [...data, {title, year, rating}]
+      return {title, year, rating}
+    }
   }
 }
 
